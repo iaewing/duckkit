@@ -14,6 +14,7 @@ class Post extends Model
         'body',
         'user_id',
         'duck',
+        'subduckkit_id'
     ];
 
     public function comments()
@@ -24,5 +25,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function subduckkit()
+    {
+        return $this->belongsTo(Subduckkit::class);
     }
 }

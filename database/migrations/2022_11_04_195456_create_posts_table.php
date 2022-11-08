@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('body');
             $table->string('user_id');
             $table->bigInteger('duck');
+            $table->unsignedInteger('subduckkit_id');
         });
     }
 
