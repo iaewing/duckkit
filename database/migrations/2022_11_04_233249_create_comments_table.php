@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('parent_comment_id')->nullable();
-            $table->bigInteger('duck')->default(0);
+            $table->bigInteger('karma')->default(1);
             $table->string('body');
             $table->string('user_id');
             $table->string('post_id');

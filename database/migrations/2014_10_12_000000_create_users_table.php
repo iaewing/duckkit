@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->bigInteger('duck')->default(0);
+            $table->bigInteger('karma')->default(0);
         });
     }
 

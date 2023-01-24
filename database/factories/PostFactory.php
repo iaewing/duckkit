@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => fake()->name(),
             'body' => fake()->text(),
             'user_id' => fake()->numberBetween(1, 500),
-            'duck' => fake()->numberBetween(0, 1000),
+            'karma' => fake()->numberBetween(1, 1000),
         ];
     }
 }

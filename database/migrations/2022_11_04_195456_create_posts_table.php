@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('body');
             $table->string('user_id');
-            $table->bigInteger('duck');
+            $table->bigInteger('karma')->default(1);
             $table->unsignedInteger('subduckkit_id');
         });
     }
