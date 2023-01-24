@@ -13,8 +13,12 @@ class Post extends Model
         'title',
         'body',
         'user_id',
-        'duck',
+        'duck', //karma equivalent
         'subduckkit_id'
+    ];
+
+    protected $attributes = [
+        'duck' => 1
     ];
 
     public function comments()
