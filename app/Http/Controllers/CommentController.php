@@ -9,9 +9,11 @@ class CommentController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->id) {
-            return Comment::query()->where('id', $request->id)->get();
-        }
+        return Comment::query()->where('id', $request->id)->get();
+    }
+
+    public function show()
+    {
         return Comment::query()->get();
     }
 

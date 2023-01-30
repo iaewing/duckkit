@@ -34,6 +34,7 @@ Route::controller(PostController::class)->group(function () {
 
 Route::controller(CommentController::class)->group(function () {
     Route::get('/comments', 'index');
+    Route::get('/comments/{id}', 'show');
     Route::post('/comments', 'store');
     Route::patch('/comments', 'update');
 });
