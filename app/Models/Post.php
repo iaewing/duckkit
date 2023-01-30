@@ -18,7 +18,7 @@ class Post extends Model
     ];
 
     protected $attributes = [
-        'duck' => 1
+        'karma' => 1
     ];
 
     public function comments()

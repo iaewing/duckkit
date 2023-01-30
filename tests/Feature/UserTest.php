@@ -17,6 +17,6 @@ class UserTest extends TestCase
     public function testItDoesSomething()
     {
         $user = User::factory()->create();
-        $this->assertNotEmpty($user->duck);
+        $this->assertNotEmpty($user->karma);
     }
 }
