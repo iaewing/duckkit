@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->id) {
-            return Post::query()->where('id', $request->id)->get();
-        }
-        return Post::query()->get();
+        return Inertia::render('Posts/Index', [
+            'posts' => Post::with('user:id,name')->latest()->get(),
+        ]);
+        // if ($request->id) {
+        //     return Post::query()->where('id', $request->id)->get();
+        // }
+        // return Post::query()->get();
     }
 
     public function store(Request $request)
