@@ -6,7 +6,8 @@ const posts = ref(null);
 
 onBeforeMount(() => {
     getPosts();
-})
+});
+
 async function getPosts(): Promise<void> {
     try {
         await fetch('/api/posts')
@@ -15,8 +16,8 @@ async function getPosts(): Promise<void> {
     } catch (error) {
         console.log(error);
     }
+};
 
-}
 </script>
 
 <template>
