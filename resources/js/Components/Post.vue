@@ -8,4 +8,3 @@
 <script setup lang="ts">
     defineProps(["postTitle", "postBody"]);
 </script>
-"
