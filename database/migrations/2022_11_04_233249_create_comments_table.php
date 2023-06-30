@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('body');
             $table->string('user_id');
             $table->string('post_id');
+            $table->boolean('isApproved')->default(true);
             $table->timestamps();
         });
     }

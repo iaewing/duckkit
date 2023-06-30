@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'body',
@@ -15,6 +17,7 @@ class Comment extends Model
         'karma',
         'post_id',
         'parent_comment_id',
+        'isApproved',
     ];
 
     public function comments()
