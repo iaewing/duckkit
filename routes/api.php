@@ -28,6 +28,8 @@ Route::controller(UserController::class)->group(function () {
 
 Route::controller(PostController::class)->group(function () {
     Route::get('/posts', 'index')->name('posts.index');
+    Route::get('/posts/{id}', 'show')->name('posts.show');
+    Route::get('posts/{id}/comments', 'comments')->name('posts.comments');
     Route::post('/posts', 'store')->name('posts.store');
     Route::patch('/posts', 'update')->name('posts.update');
 });

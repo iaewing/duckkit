@@ -46,4 +46,15 @@ class PostController extends Controller
 
         return $item;
     }
+
+    public function show(Request $request)
+    {
+        return Post::query()->where('id', $request->id)->get();
+    }
+
+    public function comments(Request $request)
+    {
+        $post = Post::query()->where('id', $request->id)->first();
+        return $post->comments()->get();
+    }
 }
