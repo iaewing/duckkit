@@ -24,8 +24,9 @@ async function getPosts(): Promise<void> {
     <div class="uppercase border-b">Duckkit</div>
     <div>
         <div v-for="post in posts" :key="post.id">
-            <Post :postTitle="post.title" :postBody="post.body" />
+            <Post :post="post" />
         </div>
         <div v-if="!posts">Looks like there's nothing here...</div>
     </div>
 </template>
+!
