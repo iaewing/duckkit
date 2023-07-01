@@ -21,6 +21,7 @@ class PostFactory extends Factory
             'body' => fake()->text(),
             'user_id' => fake()->numberBetween(1, 500),
             'karma' => fake()->numberBetween(1, 1000),
+            'subduckkit_id' => fake()->numberBetween(1, 50),
         ];
     }
 }

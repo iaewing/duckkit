@@ -44,9 +44,8 @@ defineProps({
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <h1 class="bg-red-800">DUCKKIT</h1>
+                <h1 class="bg-red-800 text-white">DUCKKIT</h1>
             </div>
-
             <div
                 class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg"
             >
@@ -105,11 +104,7 @@ defineProps({
                                 ></path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold">
-                                <a
-                                    href="https://laracasts.com"
-                                    class="underline text-gray-900 dark:text-white"
-                                    >Laracasts</a
-                                >
+                                <Link href="/homepage">Home Page</Link>
                             </div>
                         </div>
 
@@ -117,10 +112,7 @@ defineProps({
                             <div
                                 class="mt-2 text-gray-600 dark:text-gray-400 text-sm"
                             >
-                                Laracasts offers thousands of video tutorials on
-                                Laravel, PHP, and JavaScript development. Check
-                                them out, see for yourself, and massively level
-                                up your development skills in the process.
+                                None of this is relevant
                             </div>
                         </div>
                     </div>

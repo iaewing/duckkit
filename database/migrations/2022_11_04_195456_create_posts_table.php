@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('title');
             $table->string('body');
             $table->string('user_id');
             $table->bigInteger('karma')->default(1);
             $table->unsignedInteger('subduckkit_id');
+            $table->boolean('isApproved')->default(true);
+            $table->timestamps();
         });
     }
 
