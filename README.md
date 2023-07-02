@@ -4,5 +4,6 @@
 `php artisan key:generate`
 `sail up`
 `npm run dev`
+From inside the Docker Containerr run:
+`php artisan db:seed`
 
-From insid the Docker Containerr run:
