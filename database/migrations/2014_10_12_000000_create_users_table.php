@@ -23,6 +23,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->bigInteger('karma')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

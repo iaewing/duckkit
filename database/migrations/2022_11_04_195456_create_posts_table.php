@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedInteger('subduckkit_id');
             $table->boolean('isApproved')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
