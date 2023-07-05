@@ -30,5 +30,5 @@ function getComments() {
     <div class="border-4 px-4 py-2">{{ post.title }}</div>
     <div>{{ post.body }}</div>
     <div class="border-b-8"></div>
-    <div v-for="comment in comments" :key="'comment' +">{{ comment.body }}</div>
+    <div v-for="comment in comments" :key="comment.id">{{ comment.body }}</div>
 </template>
