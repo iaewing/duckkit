@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('parent_comment_id')->nullable();
             $table->bigInteger('karma')->default(1);
-            $table->string('body');
+            $table->string('body', 1000);
             $table->string('user_id');
             $table->string('post_id');
             $table->boolean('isApproved')->default(true);
