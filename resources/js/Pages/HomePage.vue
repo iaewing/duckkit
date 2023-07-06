@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from "vue";
-import Post from "@/Components/Post.vue";
+import PostCard from "@/Components/PostCard.vue";
 
 const posts = ref(null);
 
@@ -24,7 +24,7 @@ async function getPosts(): Promise<void> {
     <div class="uppercase border-b">Duckkit</div>
     <div>
         <div v-for="post in posts" :key="post.id">
-            <Post :post="post" />
+            <PostCard :post="post" />
         </div>
         <div v-if="!posts">Looks like there's nothing here...</div>
     </div>

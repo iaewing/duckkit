@@ -7,10 +7,9 @@ const isVisible = ref(false);
 </script>
 
 <template>
-    <div class="w-1/2">
-            <Link class="text-xl text-blue-600" :href="'/post/' + post.id"  as="div">{{ post.title }}</Link>
-        <button @click="isVisible = !isVisible">Click</button>
+    <div class="w-1/2 border border-violet-300 my-2 px-4 py-2">
+            <Link class="text-xl text-violet-600" :href="'/post/' + post.id"  as="div">{{ post.title }}</Link>
+        <button @click="isVisible = !isVisible">Expand</button>
         <div v-if="isVisible" class="text-md text-gray-600">{{ post.body }}</div>
-        <button @click="console.log(post.id)">Log</button>
     </div>
 </template>
