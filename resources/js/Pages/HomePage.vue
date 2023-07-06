@@ -22,7 +22,7 @@ async function getPosts(): Promise<void> {
 
 <template>
     <div class="uppercase border-b">Duckkit</div>
-    <div>
+    <div class="flex flex-col pl-4">
         <div v-for="post in posts" :key="post.id">
             <PostCard :post="post" />
         </div>
