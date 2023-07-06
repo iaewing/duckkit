@@ -17,7 +17,7 @@ class SubduckkitFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->text(),
+            'name' => join(fake()->words(rand(1, 3))),
         ];
     }
 }
