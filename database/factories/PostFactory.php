@@ -17,8 +17,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->name(),
-            'body' => fake()->text(),
+            'title' => fake()->sentence(),
+            'body' => fake()->paragraph(),
             'user_id' => fake()->numberBetween(1, 500),
             'karma' => fake()->numberBetween(1, 1000),
             'subduckkit_id' => fake()->numberBetween(1, 50),
