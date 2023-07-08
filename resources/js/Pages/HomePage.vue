@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from "vue";
 import PostCard from "@/Components/PostCard.vue";
+import DefaultLayout from "@/Layouts/DefaultLayout.vue";
 
 const posts = ref(null);
 
@@ -21,11 +22,12 @@ async function getPosts(): Promise<void> {
 </script>
 
 <template>
-    <div class="uppercase border-b">Duckkit</div>
-    <div class="flex flex-col pl-4">
-        <div v-for="post in posts" :key="post.id">
-            <PostCard :post="post" />
+    <DefaultLayout>
+        <div class="flex flex-col pl-4">
+            <div v-for="post in posts" :key="post.id">
+                <PostCard :post="post" />
+            </div>
+            <div v-if="!posts">Looks like there's nothing here...</div>
         </div>
-        <div v-if="!posts">Looks like there's nothing here...</div>
-    </div>
+    </DefaultLayout>
 </template>
