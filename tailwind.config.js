@@ -12,7 +12,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: [ 'Georgia', 'Times', 'Times New Roman', 'serif', ...defaultTheme.fontFamily.sans],
             },
         },
     },
