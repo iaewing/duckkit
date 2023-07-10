@@ -15,8 +15,7 @@ class CommentController extends Controller
 
     public function show(Request $request)
     {
-        $comment = Comment::query()->where('id', $request->id)->with('user')->get();
-
+        return Comment::query()->with('user')->where('id', $request->id)->get();
     }
 
     public function store(Request $request)
