@@ -11,6 +11,5 @@ const isVisible = ref(false);
             <Link class="text-xl text-blue-600" :href="'/post/' + post.id"  as="div">{{ post.title }}</Link>
         <button @click="isVisible = !isVisible">Click</button>
         <div v-if="isVisible" class="text-md text-gray-600">{{ post.body }}</div>
-        <button @click="console.log(post.id)">Log</button>
     </div>
 </template>
