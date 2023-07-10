@@ -34,7 +34,7 @@ async function getComments() {
     </div>
     <div class="border-b-8"></div>
     <div v-for="comment in comments" :key="comment.id">
-        <CommentCard v-if="comment" :comment="comment" />
+        <CommentCard :comment="comment" />
     </div>
 </template>
 
