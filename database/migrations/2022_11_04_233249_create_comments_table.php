@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_comment_id')->nullable();
+            $table->unsignedBigInteger('parent_comment_id')->nullable();
             $table->bigInteger('karma')->default(1);
             $table->string('body');
-            $table->string('user_id');
-            $table->string('post_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('post_id');
             $table->boolean('isApproved')->default(true);
             $table->timestamps();
             $table->softDeletes();

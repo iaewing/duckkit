@@ -54,7 +54,12 @@ class PostController extends Controller
 
     public function comments(Request $request)
     {
-        $post = Post::query()->where('id', $request->id)->first();
-        return $post->comments()->get();
+        $postId = (int) $request->id;
+        return Post::query()
+            ->where('id', $postId)
+            ->with('comments', function ($query) use ($postId) {
+                $query->where('post_id', $postId)->with(['user']);
+            })
+            ->get();
     }
 }
