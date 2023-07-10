@@ -29,4 +29,3 @@ async function getPosts(): Promise<void> {
         <div v-if="!posts">Looks like there's nothing here...</div>
     </div>
 </template>
-!
