@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function index(Request $request)
-    {
-        return Comment::query()->where('id', $request->id)->get();
-    }
-
-    public function show()
+    public function index()
     {
         return Comment::query()->get();
+
+    }
+
+    public function show(Request $request)
+    {
+        $comment = Comment::query()->where('id', $request->id)->with('user')->get();
+
     }
 
     public function store(Request $request)
