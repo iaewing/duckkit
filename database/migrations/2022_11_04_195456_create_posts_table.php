@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('body');
-            $table->string('user_id');
+            $table->unsignedInteger('user_id');
             $table->bigInteger('karma')->default(1);
             $table->unsignedInteger('subduckkit_id');
             $table->boolean('isApproved')->default(true);
