@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_comment_id')->nullable();
+            $table->unsignedBigInteger('parent_comment_id')->nullable();
             $table->bigInteger('karma')->default(1);
             $table->string('body', 1000);
             $table->string('user_id');

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
 import DefaultLayout from "@/Layouts/DefaultLayout.vue";
+import CommentCard from '@/Components/CommentCard.vue';
 
 const props = defineProps(['id']);
 
@@ -8,14 +9,19 @@ const comments = ref(null);
 const post = ref(null);
 
 onBeforeMount(() => {
-    getPost();
-    getComments();
+    console.log('onBeforeMount');
+    getPostWithComments();
+
 })
 
-function getPost() {
-    fetch(`/api/posts/${props.id}`)
+
+async function getPostWithComments() {
+    await fetch(`/api/posts/${props.id}/comments`)
         .then((response) => response.json())
-        .then((data) => (post.value = data[0]));
+        .then(function (data) {
+            post.value = data[0];
+            comments.value = data[0].comments;
+        });
 }
 
 function getComments() {

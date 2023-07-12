@@ -13,6 +13,6 @@ class SubduckkitSeeder extends Seeder
      */
     public function run(): void
     {
-        Subduckkit::factory(200)->create();
+        Subduckkit::factory()->count(200)->create();
     }
 }
