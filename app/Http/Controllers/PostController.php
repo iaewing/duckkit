@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        return Post::query()->latest()->limit(20)->get();
+        return Post::query()->with('subduckkit')->with('user')->latest()->limit(20)->get();
         // return Inertia::render('Posts/Index', [
         //     'posts' => Post::with('user:id,name')->latest()->get(),
         // ]);

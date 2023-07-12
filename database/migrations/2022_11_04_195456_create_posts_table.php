@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('body');
-            $table->unsignedInteger('user_id');
+            $table->string('title', 128);
+            $table->string('body', 1000);
+            $table->string('user_id');
             $table->bigInteger('karma')->default(1);
             $table->unsignedInteger('subduckkit_id');
             $table->boolean('isApproved')->default(true);
