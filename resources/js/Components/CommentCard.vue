@@ -21,7 +21,8 @@ function calculateTime() {
     <div class="px-4 py-2 w-3/4">
         <!-- <div>minus</div> -->
         <div class="text-xs space-x-2">
-            <span class="text-sm text-violet-400">{{ comment.user.name }}</span>
+            <span v-if="comment.user?.name" class="text-sm text-violet-400">{{ comment.user.name }}</span>
+            <span v-if="!comment.user" class="text-sm text-gray-400">[deleted]</span>
             <span>{{ comment.karma }} points</span>
             <span>{{ commentTime }}</span>
         </div>
