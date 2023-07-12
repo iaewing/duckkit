@@ -9,20 +9,18 @@ const post = ref(null);
 
 onBeforeMount(() => {
     console.log('onBeforeMount');
-    getPost();
-    getComments();
+    getPostWithComments();
+
 })
 
-async function getPost() {
-    await fetch(`/api/posts/${props.id}`)
-        .then((response) => response.json())
-        .then((data) => (post.value = data[0]));
-}
 
-async function getComments() {
+async function getPostWithComments() {
     await fetch(`/api/posts/${props.id}/comments`)
         .then((response) => response.json())
-        .then((data) => (comments.value = data[0].comments));
+        .then(function (data) {
+            post.value = data[0];
+            comments.value = data[0].comments;
+        });
 }
 
 </script>
