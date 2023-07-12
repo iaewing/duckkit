@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_comment_id')->nullable();
             $table->bigInteger('karma')->default(1);
             $table->string('body', 1000);
-            $table->string('user_id');
-            $table->string('post_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('post_id');
             $table->boolean('isApproved')->default(true);
             $table->timestamps();
             $table->softDeletes();

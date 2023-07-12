@@ -38,7 +38,7 @@ onBeforeMount(() => {
             <div class="flex flex-col">
                 <Link class="text-xl text-violet-700" :href="'/post/' + post.id" as="div">{{ post.title }}</Link>
                 <div class="flex flex-row">
-                    <button @click="isVisible = !isVisible" class="pr-2">Expand</button>
+                    <button @click="isVisible = !isVisible" class="pr-2 border">+</button>
                     <div>Submitted {{ postTime }} by <span class="text-violet-400">{{ post.user.name }}</span> to <span
                             class="text-violet-400">{{ post.subduckkit.name }}</span></div>
                 </div>
