@@ -7,22 +7,24 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(Request $request)
+    
+    public function show(Request $request)
     {
-        return Post::query()->with('subduckkit')->with('user')->latest()->limit(20)->get();
-        // return Inertia::render('Posts/Index', [
-        //     'posts' => Post::with('user:id,name')->latest()->get(),
-        // ]);
-        // if ($request->id) {
-        //     return Post::query()->where('id', $request->id)->get();
+        return Post::query()->with('comments')->with('user')->where('id', $request->id)->first();
+    }
+
+    public function index(Request $request, bool $pagiante = false)
+    {
+        // if ($pagiante){
+        //     return Post::query()->with('subduckkit')->with('user')->latest()->paginate(25);
         // }
-        // return Post::query()->get();
+        // return Post::query()->with('subduckkit')->with('user')->latest()->get();
+        return Post::query()->with('subduckkit')->with('user')->latest()->paginate(25);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-
             'title' => 'required|string|max:255',
             'body' => 'required|string|max:255',
             'user_id' => 'required|string|max:255',
@@ -47,10 +49,6 @@ class PostController extends Controller
         return $item;
     }
 
-    public function show(Request $request)
-    {
-        return Post::query()->where('id', $request->id)->get();
-    }
 
     public function comments(Request $request)
     {
@@ -61,5 +59,11 @@ class PostController extends Controller
                 $query->where('post_id', $postId)->with(['user']);
             })
             ->get();
+    }
+
+    public function vote(Request $request)
+    {
+        $postId = (int) $request->id;
+        $isUpvote = (int) $request->upvote;
     }
 }

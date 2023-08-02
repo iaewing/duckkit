@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/vue3";
 import { onBeforeMount } from "vue";
 import * as dayjs from "dayjs";
 import * as relativeTime from "dayjs/plugin/relativeTime";
+import axios from "axios";
 
 const props = defineProps(["post"]);
 const isVisible = ref(false);
@@ -15,7 +16,11 @@ function calculateTime() {
 }
 
 function upvote() {
-
+    axios.post("/api/posts/" + props.post.id + "/vote", {
+        data: {
+            upvote: true
+        }
+    });
 }
 
 function downvote() {
