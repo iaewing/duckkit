@@ -32,6 +32,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('posts/{id}/comments', 'comments')->name('posts.comments');
     Route::post('/posts', 'store')->name('posts.store');
     Route::patch('/posts', 'update')->name('posts.update');
+    Route::post('/posts/{id}/vote', 'vote')->name('posts.vote');
 });
 
 Route::controller(CommentController::class)->group(function () {
