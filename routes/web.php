@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [HomePageController::class, 'show']);
+Route::get('/home', [HomePageController::class, 'show']);
 
 Route::get('/post/{id}', [PostPageController::class, 'show']);
 
