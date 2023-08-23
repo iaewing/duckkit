@@ -5,8 +5,5 @@ Clone the repository
 `php artisan key:generate`  
 `sail up`  
 `npm run dev`  
-
-### From inside the Docker Container run:  
-`php artisan migrate`  
-`php artisan db:seed`  
-
+`sail artisan migrate`
+`sail artisan db:seed`
