@@ -13,7 +13,7 @@ class HomePageController extends Controller
     {
         $posts = (new PostController)->index($request);
         return Inertia::render('Home', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 }
