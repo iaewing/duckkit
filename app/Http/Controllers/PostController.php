@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -59,6 +60,19 @@ class PostController extends Controller
                 $query->where('post_id', $postId)->with(['user']);
             })
             ->get();
+    }
+
+    public function tacos(Request $request)
+    {
+        $validated = $request->validate([
+            'body' => 'required|string|max:255',
+            'user_id' => 'required|string|max:255',
+            'post_id' => 'required|string|max:255',
+        ]);
+
+        $item = Comment::create($validated);
+
+        return $item;
     }
 
     public function vote(Request $request)

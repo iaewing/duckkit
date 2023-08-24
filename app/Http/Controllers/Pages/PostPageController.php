@@ -14,6 +14,7 @@ class PostPageController extends Controller
         $post = (new PostController)->show($request);
         return Inertia::render('Post', [
             'post' => $post->only(
+                'id',
                 'title',
                 'body',
                 'user_id',
@@ -24,7 +25,8 @@ class PostPageController extends Controller
             'user' => $post->user->only(
                 'username'
             ),
-            'comments' => $post->comments
+            'comments' => $post->comments,
+            'isAuthenticated' => auth()->check(),
         ]);
     }
 }

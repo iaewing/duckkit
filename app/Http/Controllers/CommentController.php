@@ -20,13 +20,14 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'body' => 'required|string|max:255',
-            'user_id' => 'required|string|max:255',
-            'subduckkit_id' => 'required|string|max:255',
-        ]);
+        // $validated = $request->validate([
+        //     'body' => 'required|string|max:255',
+        //     'parentCommentId' => 'string|nullable|max:255',
+        //     'userId' => 'required|string|max:255',
+        //     'postId' => 'required|string|max:255',
+        // ]);
 
-        $item = Comment::create($validated);
+        $item = Comment::create($request->input());
 
         return $item;
     }
