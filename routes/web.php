@@ -34,7 +34,7 @@ Route::get('/dashboard', function () {
 Route::get('/', [HomePageController::class, 'show']);
 Route::get('/home', [HomePageController::class, 'show']);
 
-Route::get('/post/{id}', [PostPageController::class, 'show']);
+Route::get('/posts/{id}', [PostPageController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('posts', PostController::class)
     ->only(['index', 'show', 'store', 'update']);
-    // ->middleware(['auth', 'verified']);
+// ->middleware(['auth', 'verified']);
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

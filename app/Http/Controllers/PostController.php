@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Pages\PostPageController;
 
 class PostController extends Controller
 {
-    
+
     public function show(Request $request)
     {
         return Post::query()->with('comments')->with('user')->where('id', $request->id)->first();
@@ -16,10 +17,6 @@ class PostController extends Controller
 
     public function index(Request $request, bool $pagiante = false)
     {
-        // if ($pagiante){
-        //     return Post::query()->with('subduckkit')->with('user')->latest()->paginate(25);
-        // }
-        // return Post::query()->with('subduckkit')->with('user')->latest()->get();
         return Post::query()->with('subduckkit')->with('user')->latest()->paginate(25);
     }
 
@@ -62,17 +59,18 @@ class PostController extends Controller
             ->get();
     }
 
-    public function tacos(Request $request)
+    public function createComment(Request $request)
     {
-        $validated = $request->validate([
-            'body' => 'required|string|max:255',
-            'user_id' => 'required|string|max:255',
-            'post_id' => 'required|string|max:255',
-        ]);
+        $newComment = [
+            'body' => $request->input('body'),
+            'parent_comment_id' => $request->input('parent_comment_id'),
+            'user_id' => $request->input('userId'),
+            'post_id' => $request->input('postId')
+        ];
 
-        $item = Comment::create($validated);
+        Comment::create($newComment);
 
-        return $item;
+        return (new PostPageController)->show($request);
     }
 
     public function vote(Request $request)

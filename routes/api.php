@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -30,6 +29,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/posts', 'index')->name('posts.index');
     Route::get('/posts/{id}', 'show')->name('posts.show');
     Route::get('posts/{id}/comments', 'comments')->name('posts.comments');
+    Route::post('posts/{id}/comments', 'createComment')->name('posts.comments.store');
     Route::post('/posts', 'store')->name('posts.store');
     Route::patch('/posts', 'update')->name('posts.update');
     Route::post('/posts/{id}/vote', 'vote')->name('posts.vote');

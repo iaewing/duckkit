@@ -16,7 +16,7 @@ const props = defineProps({
 
 const postTime = ref(null);
 const form = reactive({
-    comment: null,
+    body: null,
     parentCommentId: null,
     userId: props.post.user_id,
     postId: props.post.id,
@@ -32,9 +32,7 @@ function calculateTime() {
 }
 
 function submit() {
-    console.log('user', props.post.user_id);
-    console.log('post', props.post.id);
-    router.post(route('comments.store'), form);
+    router.post(route('posts.comments.store', {id: props.post.id}), form);
 }
 </script>
 
@@ -44,7 +42,7 @@ function submit() {
         <div>{{ post.body }}</div>
         <div>Submitted {{ postTime }} by <span class="text-violet-400">{{ user.username }}</span></div>
         <div class="border-b-8"></div>
-        <TextInput :isAuthenticated="isAuthenticated" v-model="form.comment"/>
+        <TextInput :isAuthenticated="isAuthenticated" v-model="form.body"/>
         <button @click="submit">Submit</button>
         <div v-for="comment in comments" :key="comment.id">
             <CommentCard :comment="comment" />
