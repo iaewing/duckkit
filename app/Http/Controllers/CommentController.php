@@ -10,26 +10,11 @@ class CommentController extends Controller
     public function index()
     {
         return Comment::query()->get();
-
     }
 
     public function show(Request $request)
     {
         return Comment::query()->with('user')->where('id', $request->id)->get();
-    }
-
-    public function store(Request $request)
-    {
-        // $validated = $request->validate([
-        //     'body' => 'required|string|max:255',
-        //     'parentCommentId' => 'string|nullable|max:255',
-        //     'userId' => 'required|string|max:255',
-        //     'postId' => 'required|string|max:255',
-        // ]);
-
-        $item = Comment::create($request->input());
-
-        return $item;
     }
 
     public function update(Request $request)
