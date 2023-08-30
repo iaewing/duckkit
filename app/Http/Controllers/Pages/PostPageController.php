@@ -12,6 +12,7 @@ class PostPageController extends Controller
     public function show(Request $request)
     {
         $post = (new PostController)->show($request);
+
         return Inertia::render('Post', [
             'post' => $post->only(
                 'id',
